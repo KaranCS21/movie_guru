@@ -4,12 +4,12 @@ import pandas as pd
 import requests
 from requests.exceptions import RequestException
 import time
-
+import os
 
 # Set page configuration
 st.set_page_config(
     page_title="Movie Recommendation System",
-    page_icon="popcorn.png"  
+    page_icon="popcorn.png"
 )
 
 # TMDb API key
@@ -17,7 +17,7 @@ api_key = "c695019c63e1d6ecca032da1828fac58"
 
 # Function to fetch the poster URL and TMDb movie page URL
 def fetch_poster_and_link(movie_id):
-    url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=c695019c63e1d6ecca032da1828fac58&language=en-US"
+    url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}&language=en-US"
     retries = 3
     for _ in range(retries):
         try:
@@ -56,9 +56,19 @@ def recomended(movie):
     
     return recommended_movie_names, recommended_movie_posters, recommended_movie_links
 
+# Function to load split similarity chunks and combine them into one matrix
+def load_combined_similarity(parts=8):
+    combined_similarity = []
+    for i in range(parts):
+        part_filename = f"similarity_part{i + 1}.pkl"
+        with open(part_filename, 'rb') as f:
+            part_data = pickle.load(f)
+            combined_similarity.extend(part_data)  # Or np.concatenate if it's a NumPy array
+    return combined_similarity
+
 # Load the movie data and similarity matrix
 movies = pickle.load(open('movie.pkl', 'rb'))
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+similarity = load_combined_similarity(parts=8)
 
 # Streamlit interface
 st.title('Movie Recommendation System')
@@ -80,8 +90,7 @@ if st.button('Show Recommendation'):
                 # Display the poster as a clickable image that redirects to the TMDb movie page
                 st.markdown(f"<a href='{link}' target='_blank'><img src='{poster}' alt='{name}' style='width:100%;'></a>", unsafe_allow_html=True)
 
-
-#design footer
+# Design footer
 st.markdown(
     """
     <style>
@@ -97,7 +106,7 @@ st.markdown(
         color: black;
         text-align: center;
         padding: 10px;
-        font-size: 14px;d
+        font-size: 14px;
         box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
     }
     </style>
