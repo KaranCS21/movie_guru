@@ -12,7 +12,7 @@ This is a Streamlit-based web application that provides movie recommendations ba
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/KaranCS21/movie-recommendation-system.git
+   git clone https://github.com/KaranCS21/movie_guru.git
 
 2. **Navigate to the project directory:** 
    ```bash
