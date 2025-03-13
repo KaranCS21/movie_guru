@@ -12,7 +12,7 @@ This is a Streamlit-based web application that provides movie recommendations ba
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/KaranCS21/movie-recommendation-system.git
+   git clone https://github.com/KaranCS21/movie_guru.git
 
 2 **Navigate to the project directory:** 
 Navigate to the project directory:
@@ -31,9 +31,6 @@ pip install -r requirements.txt
 
 ## Contributing
 - If you want to contribute to this project, feel free to fork the repository and submit a pull request.
-
-## License
-- This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contact
 If you have any questions or suggestions, feel free to contact me at karanparajapati54@gmail.com.
