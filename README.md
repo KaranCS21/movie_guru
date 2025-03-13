@@ -12,16 +12,16 @@ This is a Streamlit-based web application that provides movie recommendations ba
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/KaranCS21/movie_guru.git
+   git clone https://github.com/KaranCS21/movie-recommendation-system.git
 
-2 **Navigate to the project directory:** 
-  ```bash
-  cd movie-recommendation-system
+2. **Navigate to the project directory:** 
+   ```bash
+   cd movie-recommendation-system
 
 
-3 **Install the dependencies:**
-  ```bash
-  pip install -r requirements.txt
+3. **Install the dependencies:**
+   ```bash
+   pip install -r requirements.txt
 
 
 ## Files
