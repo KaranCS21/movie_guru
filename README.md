@@ -16,10 +16,12 @@ This is a Streamlit-based web application that provides movie recommendations ba
 
 2 **Navigate to the project directory:** 
 Navigate to the project directory:
+ ```bash
 cd movie-recommendation-system
 
 
 3 **Install the dependencies:**
+ ```bash
 pip install -r requirements.txt
 
 
